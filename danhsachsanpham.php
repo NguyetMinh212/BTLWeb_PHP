@@ -97,18 +97,6 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Tên sản phẩm</th>
-                                            <th>Loại sản phẩm</th>
-                                            <th>Nhà cung cấp</th>
-                                            <th>Giá nhập</th>
-                                            <th>Giá bán</th>
-                                            <th>Số lượng</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <?php foreach ($result as $each):?>
                                             <tr>

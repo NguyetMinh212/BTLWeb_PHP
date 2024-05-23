@@ -290,7 +290,6 @@
                                     </tbody>
                                 </table>
 
-                    <h3 class="mt-5 mb-3" style="font-weight: 700;color: #008DDA; ">Biểu đồ phần trăm doanh thu của từng loại sản phẩm</h3>
                     <div class="row">
                         <?php 
                             $sql = "SELECT 
@@ -324,72 +323,6 @@
                             $hoverBackgroundColors = ['#2e59d9', '#17a673', '#2c9faf','#FF5F00', '#FF0080']; // Màu khi hover
 
                          ?>
-
-                        <!-- Pie Chart -->
-                        <div class="col-lg-12">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Biểu đồ</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        var ctx = document.getElementById("myPieChart");
-                        var myPieChart = new Chart(ctx, {
-                          type: 'doughnut',
-                          data: {
-                            labels: <?php echo json_encode($ten); ?>,
-                            datasets: [{
-                              data: <?php echo json_encode($phantram); ?>,
-                              backgroundColor: <?php echo json_encode($backgroundColors); ?>,
-                              hoverBackgroundColor: <?php echo json_encode($hoverBackgroundColors); ?>,
-                              hoverBorderColor: "rgba(234, 236, 244, 1)",
-                            }],
-                          },
-                          options: {
-                            maintainAspectRatio: false,
-                            tooltips: {
-                              backgroundColor: "rgb(255,255,255)",
-                              bodyFontColor: "#858796",
-                              borderColor: '#dddfeb',
-                              borderWidth: 1,
-                              xPadding: 15,
-                              yPadding: 15,
-                              displayColors: false,
-                              caretPadding: 10,
-                            },
-                            legend: {
-                              display: false
-                            },
-                            cutoutPercentage: 80,
-                          },
-                        });
-
-                    </script>
-
                 </div>
                 <!-- /.container-fluid -->
 
