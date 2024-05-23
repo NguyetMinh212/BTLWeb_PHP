@@ -16,22 +16,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <title>Thêm đơn hàng nhập</title>
 </head>
 
 <body id="page-top">
     <?php 
-        session_start();
         if (!isset($_SESSION['cart'])) {
          $_SESSION['cart'] = array();
         }
@@ -43,31 +32,15 @@
         $sanpham = mysqli_query($connect,$sql);
 
      ?>
-    <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
         <?php include "sidebar.php" ?>
 
-
-        </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
             <div id="content">
-
-                <!-- Topbar -->
                 <?php include "header.php" ?>
-
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Content chính -->
                 <div>
-                    
                     <form method="post" action="process_themdonhangnhap.php" style="width: 70%;" class = "ml-auto mr-auto">
                     <h2 class="text-dark mt-3">Thêm đơn hàng nhập</h2>
                     <label>Nhân viên</label>
@@ -93,8 +66,6 @@
                         </div>
                     </div>
 
-                    
-                    
                     <hr>
                     <h2 class="text-dark mt-3">Chi tiết đơn</h2>
                     <div class="d-flex align-items-center mb-5">
@@ -169,45 +140,14 @@
                 </div>
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
             <?php include "footer.php" ?>
-            <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <?php include "script.php" ?>
+
     <script>
+        // Thêm sản phẩm vào giỏ hàng
         $(document).ready(function () {
             $('#addToCartButton').on('click', function (e) {
                 e.preventDefault();
@@ -232,7 +172,6 @@
                     alert("Hãy nhập số lượng lớn hơn 0!");
                     return;
                 }
-                // $('#quantityInput').val() = "1";
                 // Gửi yêu cầu AJAX tới server
                 $.ajax({
                     url: 'themsanphamvaogio.php',
@@ -252,7 +191,8 @@
                     }
                 });
             });
-            function updateCartTable() {
+        // Cập nhật bảng giỏ hàng sau khi thêm sản phẩm
+        function updateCartTable() {
         $.ajax({
             url: 'get_cart_data.php',  // Tệp PHP trả về dữ liệu giỏ hàng
             type: 'GET',
@@ -281,26 +221,26 @@
     }
     // Lắng nghe sự kiện click trên các nút xóa sau khi bảng được cập nhật
     $(document).on('click', '.btn-delete-item-cart', function (e) {
-    e.preventDefault();
+        e.preventDefault();
 
-    var productID = $(this).data('product-id');
+        var productID = $(this).data('product-id');
 
-    // Gửi yêu cầu Ajax tới máy chủ để xóa sản phẩm khỏi giỏ hàng
-    $.ajax({
-        url: 'xoasanphamkhoigio.php', // Tệp PHP xóa sản phẩm
-        type: 'POST',
-        data: {
-            product_id: productID
-        },
-        success: function (response) {
-            alert('Sản phẩm đã được xóa khỏi giỏ hàng!');
-            updateCartTable(); // Cập nhật lại bảng sau khi xóa
-        },
-        error: function (xhr, status, error) {
-            console.error('Đã xảy ra lỗi:', error);
-        }
+        // Gửi yêu cầu Ajax tới máy chủ để xóa sản phẩm khỏi giỏ hàng
+        $.ajax({
+            url: 'xoasanphamkhoigio.php', // Tệp PHP xóa sản phẩm
+            type: 'POST',
+            data: {
+                product_id: productID
+            },
+            success: function (response) {
+                alert('Sản phẩm đã được xóa khỏi giỏ hàng!');
+                updateCartTable(); // Cập nhật lại bảng sau khi xóa
+            },
+            error: function (xhr, status, error) {
+                console.error('Đã xảy ra lỗi:', error);
+            }
+        });
     });
-});
     // Tải dữ liệu giỏ hàng ngay khi trang được tải
     updateCartTable();
         });
