@@ -245,6 +245,42 @@
                                     </tbody>
                                 </table>
 
+<<<<<<< HEAD
+=======
+                    <div class="row">
+                        <?php 
+                            $sql = "SELECT 
+                                    lsp.ten AS LoaiSanPham,
+                                    COALESCE(SUM(dxc.soluongxuat * sp.giaban), 0) AS Revenue,
+                                    (COALESCE(SUM(dxc.soluongxuat * sp.giaban), 0) / 
+                                        (SELECT SUM(dxc.soluongxuat * sp.giaban)
+                                         FROM sanpham sp
+                                         INNER JOIN donxuatchitiet dxc ON sp.id = dxc.id_sanpham
+                                         INNER JOIN donxuat dx ON dxc.id_donxuat = dx.id
+                                         WHERE MONTH(dx.ngayxuat) = MONTH(CURRENT_DATE())
+                                         AND YEAR(dx.ngayxuat) = YEAR(CURRENT_DATE())
+                                        )
+                                    ) * 100 AS Percentage
+                                FROM loaisanpham lsp
+                                LEFT JOIN sanpham sp ON lsp.id = sp.id_loaisanpham
+                                LEFT JOIN donxuatchitiet dxc ON sp.id = dxc.id_sanpham
+                                LEFT JOIN donxuat dx ON dxc.id_donxuat = dx.id
+                                WHERE MONTH(dx.ngayxuat) = MONTH(CURRENT_DATE())
+                                AND YEAR(dx.ngayxuat) = YEAR(CURRENT_DATE())
+                                GROUP BY lsp.id, lsp.ten
+                                ORDER BY Revenue DESC;";
+                            $result = mysqli_query($connect,$sql);
+                            if ($result->num_rows > 0) {
+                              while($row = $result->fetch_assoc()) {
+                                $ten[] = $row['LoaiSanPham'];
+                                $phantram[] = $row['Percentage'];
+                              }
+                            }
+                            $backgroundColors = ['#4e73df', '#1cc88a', '#36b9cc', '#FF9F66','#FF5580']; // Màu nền
+                            $hoverBackgroundColors = ['#2e59d9', '#17a673', '#2c9faf','#FF5F00', '#FF0080']; // Màu khi hover
+
+                         ?>
+>>>>>>> 92babbb0cac1ec204061f8a2c115671765953cf7
                 </div>
             </div>
             <!-- Footer -->
