@@ -84,7 +84,7 @@
                         </div>
                         <a id="addToCartButtonXuat" class="btn btn-primary ml-5" style="display: block; margin-top: 32px;">Thêm sản phẩm</a>
                     </div>
-                    <table class="table table-bordered table-primary" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Tên sản phẩm</th>

@@ -27,7 +27,7 @@
         $sql = "select * from donnhap";
         $donnhap = mysqli_query($connect,$sql);
      ?>
-    <div id="wrapper">
+    <div style="height: 100vh;" id="wrapper">
         <?php include "sidebar.php" ?>
 
         <div id="content-wrapper" class="d-flex flex-column">
@@ -76,7 +76,9 @@
                                                     <button type="button" class="btn btn-warning"><a class = "text-white text-decoration-none" href="suadonhangnhap.php?id=<?php echo $each['id'] ?>">Sửa</a></button>
                                                 </th>
                                                 <th>
-                                                    <button type="button" class="btn btn-danger"><a class = "text-white text-decoration-none" href="xoadonhangnhap.php?id=<?php echo $each['id'] ?>">Xóa</a></button>
+                                                    <a class="btn btn-danger mb-3" href="#" data-toggle="modal" data-target="#xoadonhangnhap-modal" data-productid="<?php echo $each['id']; ?>">
+                                                        Xóa
+                                                    </a>
                                                 </th>
                                             </tr>
                                         <?php endforeach ?>
@@ -96,7 +98,24 @@
 
         </div>
     </div>
-
+    <div class="modal fade" id="xoadonhangnhap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xóa đơn hàng nhập</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Bạn có muốn xóa đơn hàng nhập này không?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                    <button id="confirm-xoa-donhangnhap" class="btn btn-primary">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php include "script.php" ?>
     <script src="js/jsquery.js"></script>
 

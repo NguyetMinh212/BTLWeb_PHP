@@ -76,7 +76,9 @@
                                                     <button type="button" class="btn btn-warning"><a class = "text-white text-decoration-none" href="suadonhangxuat.php?id=<?php echo $each['id'] ?>">Sửa</a></button>
                                                 </th>
                                                 <th>
-                                                    <button type="button" class="btn btn-danger"><a class = "text-white text-decoration-none" href="xoadonhangxuat.php?id=<?php echo $each['id'] ?>">Xóa</a></button>
+                                                <a class="btn btn-danger" href="#" data-toggle="modal" data-target="#xoadonhangxuat-modal" data-productid="<?php echo $each['id']; ?>">
+                                                        Xóa
+                                                    </a>
                                                 </th>
                                             </tr>
                                         <?php endforeach ?>
@@ -90,38 +92,25 @@
 
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
             <?php include "footer.php" ?>
-            <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="xoadonhangnhap-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="xoadonhangxuat-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Xóa sản phẩm</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Xóa đơn hàng xuất</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Bạn có muốn xóa sản phẩm này không?</div>
+                <div class="modal-body">Bạn có muốn xóa đơn hàng xuất này không?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
-                    <button id="confirm-xoa-sanpham" class="btn btn-primary">Xóa</button>
+                    <button id="confirm-xoa-donhangxuat" class="btn btn-primary">Xóa</button>
                 </div>
             </div>
         </div>

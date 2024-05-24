@@ -57,7 +57,9 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div style="height: 100%;" class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div style="padding: 0;" class="col-lg-6 d-none d-lg-block bg-login-image">
+                                <img style="width: 100%; height: 100%;" src="img/logo.png" alt="">
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
@@ -73,7 +75,7 @@
                                             <input name="matkhau" type="password" class="form-control"
                                                 id="exampleInputPassword" placeholder="Mật khẩu">
                                         </div>
-                                        <p style="color: red; text-align: center;""><span><?php echo $error;?></span></p>
+                                        <p style="color: red; text-align: center;"><span><?php echo $error;?></span></p>
                                         <button class="btn btn-primary btn-block">
                                             Đăng nhập
                                         </button>

@@ -151,9 +151,6 @@
 
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
             <?php include "footer.php" ?>
             <!-- End of Footer -->
 
