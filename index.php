@@ -21,7 +21,7 @@
 
 <body id="page-top">
     <?php 
-        require 'connect.php';
+        require './connect.php';
         // Tổng tiền nhập
         $sql = "SELECT SUM(tongtien) AS TongTienThangNay FROM donnhap WHERE MONTH(ngaynhap) = MONTH(CURRENT_DATE()) AND YEAR(ngaynhap) = YEAR(CURRENT_DATE());";
         $result = mysqli_query($connect,$sql);
@@ -92,7 +92,7 @@
                     </div>
                     <div class="row">
                         <!-- Tiền nhập hàng -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="col-xl-12 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -111,7 +111,7 @@
                         </div>
 
                         <!-- Tiền bán hàng -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="col-xl-12 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -129,7 +129,7 @@
                         </div>
 
                         <!-- Số đơn nhập -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="col-xl-12 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -147,7 +147,7 @@
                         </div>
                         
                         <!-- Số đơn bán -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="col-xl-12 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -245,8 +245,6 @@
                                     </tbody>
                                 </table>
 
-<<<<<<< HEAD
-=======
                     <div class="row">
                         <?php 
                             $sql = "SELECT 
@@ -280,7 +278,6 @@
                             $hoverBackgroundColors = ['#2e59d9', '#17a673', '#2c9faf','#FF5F00', '#FF0080']; // Màu khi hover
 
                          ?>
->>>>>>> 92babbb0cac1ec204061f8a2c115671765953cf7
                 </div>
             </div>
             <!-- Footer -->

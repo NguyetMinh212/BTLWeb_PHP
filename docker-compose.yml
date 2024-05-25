@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: quan_ly_kho
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: quan_ly_kho
+    ports:
+      - "3306:3306"
